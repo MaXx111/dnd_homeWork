@@ -1,0 +1,160 @@
+body {
+    margin: 0;
+}
+
+.conteiner {
+    margin: auto;
+    background-color: rgb(98, 101, 238);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.task__conteiner {
+    width: 350px;
+    margin: 50px;
+    border-radius: 15px;
+    background-color: rgb(182, 178, 178);
+}
+
+.task__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.task__title {
+    border-bottom: 1px solid black;
+    padding: 0 0 15px 0;
+}
+
+.task__add {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    text-decoration: none;
+    color: rgb(125, 125, 129);
+}
+
+.task__add::before {
+    content: url('../image/icons8-plus.svg');
+    padding: 0 15px 0 0;
+    fill:blue;
+}
+
+.task__add:hover{
+    color: rgb(70, 70, 77);
+}
+
+.task__add:active{
+    color: rgb(125, 125, 129);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0 0 0;
+}
+
+.form__buttons {
+    padding: 20px 0 0 0;
+}
+
+.add__button {
+    background-color: rgb(41, 231, 41);
+    border-radius: 15px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+.add__button:hover{
+    background-color: rgb(2, 99, 2);
+}
+
+.add__button:active{
+    background-color: rgb(41, 231, 41);
+}
+
+.cancel__button {
+    background-color: rgb(136, 136, 136);
+    border-radius: 15px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.cancel__button:hover {
+    background-color: rgb(58, 58, 58);
+}
+
+.cancel__button:active{
+    background-color: rgb(136, 136, 136);
+}
+
+.textarea{
+    font-size: 20px;
+    resize: none;
+    border-radius: 15px;
+}
+
+.textarea::placeholder {
+    color: rgb(125, 125, 129);
+    font-size: 20px;
+}
+
+.task__item {
+    background-color: #fff;
+    border: 1px solid black;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.item__plus {
+    display: none;
+    cursor: pointer; 
+    position: absolute; 
+    top: 13px; 
+    left: 300px;
+}
+
+.task__item:hover .item__plus {
+    display: block;
+}
+
+.item__plus:before, .item__plus:after {
+    content: ""; 
+    position: absolute; 
+    width: 20px; 
+    height: 4px; 
+    background: gray;
+}
+
+.item__plus:before {
+    transform: rotate(45deg);
+}
+.item__plus:after {
+    transform: rotate(-45deg);
+}
+
+.item__text {
+    margin: 0;
+    font-size: 20px;
+}
+
+.task__item.dragged {
+    width: 298px;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 999;
+    pointer-events: none;
+    background: #fff;
+    opacity: 0.7;
+    transform: rotate(10deg);
+}
