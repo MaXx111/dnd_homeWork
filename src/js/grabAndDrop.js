@@ -56,7 +56,7 @@ export default class GrabAndDrop {
     if (this.target) this.target.style.removeProperty('padding-top');
 
     this.actualItem = undefined;
-    if(this.margin){
+    if (this.margin) {
       this.margin.remove();
       this.margin = false;
     }
@@ -68,7 +68,7 @@ export default class GrabAndDrop {
     this.actualItem.style.left = `${e.pageX - this.actualItem.offsetWidth / 2}px`;
     this.actualItem.style.top = `${e.pageY - this.actualItem.offsetHeight / 2}px`;
 
-    if (!e.target.closest('.task__conteiner') && this.margin){
+    if (!e.target.closest('.task__conteiner') && this.margin) {
       this.margin.remove();
     }
 
@@ -79,9 +79,9 @@ export default class GrabAndDrop {
     }
 
     this.target = e.target.closest('.task__item');
-    let margin = document.createElement('div');
-    margin.className ='margin'
-    this.margin = margin
+    const margin = document.createElement('div');
+    margin.className = 'margin';
+    this.margin = margin;
     this.target.insertAdjacentElement('beforeBegin', margin);
   }
 
