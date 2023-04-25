@@ -5,6 +5,7 @@ export default class GrabAndDrop {
     this._elem = elem;
     this.actualItem = undefined;
     this.target = false;
+    this.margin = false;
 
     this.onAddClick = new OnAddClick(forAddClick);
     this.forAddClick = forAddClick;
@@ -55,6 +56,11 @@ export default class GrabAndDrop {
     if (this.target) this.target.style.removeProperty('padding-top');
 
     this.actualItem = undefined;
+    if(this.margin){
+      this.margin.remove();
+      this.margin = false;
+    }
+    this.target = false;
     document.body.style.removeProperty('cursor');
   }
 
@@ -62,14 +68,21 @@ export default class GrabAndDrop {
     this.actualItem.style.left = `${e.pageX - this.actualItem.offsetWidth / 2}px`;
     this.actualItem.style.top = `${e.pageY - this.actualItem.offsetHeight / 2}px`;
 
-    if (this.target) {
-      this.target.style.paddingTop = '15px';
+    if (!e.target.closest('.task__conteiner') && this.margin){
+      this.margin.remove();
     }
 
     if (!e.target.closest('.task__item')) return;
 
+    if (this.target) {
+      this.margin.remove();
+    }
+
     this.target = e.target.closest('.task__item');
-    this.target.style.paddingTop = `${this.actualItem.offsetHeight}px`;
+    let margin = document.createElement('div');
+    margin.className ='margin'
+    this.margin = margin
+    this.target.insertAdjacentElement('beforeBegin', margin);
   }
 
   editLocalStorage(idForRemove, idToAdd, valueForRemove) {

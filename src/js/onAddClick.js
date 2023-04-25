@@ -22,6 +22,10 @@ export default class OnAddClick {
     this._elem.addEventListener('click', this.onClick);
     this._elem.addEventListener('click', this.onCloseItemClick);
     this.renderLocalStorage();
+
+    this._elem.addEventListener('click', (e) => {
+      console.log(e.target)
+    });
   }
 
   renderLocalStorage() {
